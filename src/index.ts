@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import { rateLimit } from 'express-rate-limit';
 import errorMiddleware from './middleware/error.middleware';
+import routes from './routes'
 import config from './config';
 import db from './database';
 const port = config.port || 3000;
@@ -27,19 +28,14 @@ app.use(
   })
 );
 
+app.use('/api',routes)
+
 app.get('/', (req: Request, res: Response) => {
-  // throw new Error('Error exist')
   res.json({
     message: 'hello world',
   });
 });
 
-app.post('/', (req: Request, res: Response) => {
-  res.json({
-    message: 'hello world from post',
-    data: req.body,
-  });
-});
 
 //test database
 db.connect().then((client) => {

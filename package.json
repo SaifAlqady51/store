@@ -9,6 +9,7 @@
     "dev": "nodemon src/index.ts",
     "build": "npx tsc",
     "test": "npm run build && jasmine",
+    "migration:run": "db-migrate up",
     "start": "npm run build && npm run dev",
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "lint": "eslint 'src/**/*.ts'",
@@ -34,6 +35,8 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "db-migrate": "^0.11.13",
+    "db-migrate-pg": "^1.2.2",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-rate-limit": "^6.4.0",
