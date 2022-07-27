@@ -31,9 +31,7 @@ app.use(
 app.use('/api',routes)
 
 app.get('/', (req: Request, res: Response) => {
-  res.json({
-    message: 'hello world',
-  });
+  res.send(req.body)
 });
 
 

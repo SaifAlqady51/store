@@ -1,6 +1,6 @@
 
 type User = {
-    id? :number,
+    id? :string,
     email: string,
     user_name:string,
     first_name:string,
